@@ -17,7 +17,7 @@ RegisterCommand('identidade', function (source, args, rawCommand)
     local source = source
     local user_id = vRP.getUserId(source)
     local identity = vRP.getUserIdentity(user_id)
-    TriggerClientEvent('dz_identity:showIdentity',source,identity.name.." "..identity.firstname,'identity',""..user_id.."",identity.age,'inssue','valid')
+    TriggerClientEvent('dz_identity:showIdentity',source,identity.name.." "..identity.firstname,identity.registration,""..user_id.."",identity.age,identity.phone,'valid')
 end)
 
 RegisterCommand('pediridentidade', function(source, args, rawCommand)
@@ -27,6 +27,7 @@ RegisterCommand('pediridentidade', function(source, args, rawCommand)
     local nplayer = vRPclient.getNearestPlayer(source, 3)
     local nuser_id = vRP.getUserId(nplayer)
     local identityu = vRP.getUserIdentitu(nuser_id)
+    
 end)
 
 RegisterCommand('checaridentidade', function(source, args, rawCommand)
@@ -36,3 +37,10 @@ end)
 RegisterCommand('checarbiometria', function (source, args, rawCommand)
     
 end)
+
+function src.showSelfIdentity()
+    local source = source
+    local user_id = vRP.getUserId(source)
+    local identity = vRP.getUserIdentity(user_id)
+    TriggerClientEvent('dz_identity:showIdentity',source,identity.name.." "..identity.firstname,identity.registration,""..user_id.."",identity.age,identity.phone,'valid')
+end
